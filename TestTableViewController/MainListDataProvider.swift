@@ -12,17 +12,17 @@ class MainListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate
     
     var cellIdentifier = "Cell"
     
-    // die Custom Cell muss als gültige Zelle registriert werden
+    // register custom cell
     func registerCellsForTableView(tableView: UITableView) {
         tableView.registerClass(MainTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     }
     
-    // Anzahl der Zellen, hier fest auf 10, was später geändert wird
+    // number of cells: static to 10 here
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
     
-    // Daten der Zelle, hier quasi statisch
+    // cell data
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MainTableViewCell
@@ -33,12 +33,12 @@ class MainListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate
         return cell
     }
     
-    // Methode beim Auswählen
+    // cell selected
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("You selected cell #\(indexPath.row)!")
     }
     
-    // Höhe setzen
+    // set height for a cell
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 85
     }
